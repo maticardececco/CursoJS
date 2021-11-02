@@ -11,6 +11,11 @@ cargarEventListeners();
 function cargarEventListeners() {
     //Cuando agregas un curso presionando agregar al carrito
     listaCursos.addEventListener('click', agregarCurso);
+
+    //Elimina cursos del carrito
+    carrito.addEventListener('click', eliminarCurso);
+
+    vaciarCarritoBtn.addEventListener('click',vaciarCarrito);
 }
 
 //Funciones
@@ -38,8 +43,26 @@ function leerDatosCurso(curso) {
         cantidad : 1
 
     }
-    //Agregar elementos al arreglo de carrito
-    articulosCarrito = [...articulosCarrito, infoCurso];
+    //Revisar si un objeto existe en el carrito
+    const existe = articulosCarrito.some(curso => curso.id === infoCurso.id);
+    if(existe) {
+        const cursos = articulosCarrito.map(curso => {
+            if (curso.id === infoCurso.id){
+                curso.cantidad++;
+                return curso; //retorna el objeto actualizado
+            } else {
+                return curso; //retorna los objetos que no son los duplicados
+            }
+        });
+        articulosCarrito = [...cursos];
+    }
+    else {
+        //Agrega elementos al arreglo de carrito
+        articulosCarrito = [...articulosCarrito, infoCurso];
+        
+    }
+
+    
 
     console.log(articulosCarrito);
     carritoHTML();
@@ -54,19 +77,20 @@ function carritoHTML() {
 
     //Recorre carrito y genera HTML
     articulosCarrito.forEach((curso) => {
+        const {imagen,titulo,precio,cantidad} = curso;
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>
-                <img src="${curso.imagen}" width = "100">
+                <img src="${imagen}" width = "100">
             </td>
             <td>
-            ${curso.titulo}
+            ${titulo}
             </td>
             <td>
-            ${curso.precio}
+            ${precio}
             </td>
             <td>
-            ${curso.cantidad}
+            ${cantidad}
             </td>
             <td>
                 <a href="#" class="borrar-curso" data-id="${curso.id}"> X <a/>
@@ -86,4 +110,22 @@ function limpiarHTML() {
     while(contenedorCarrito.firstChild) {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild)
     }
+}
+
+function eliminarCurso(e) {
+    console.log(e.target.classList);
+    if(e.target.classList.contains('borrar-curso')) {
+        const cursoId = e.target.getAttribute('data-id');
+
+        articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
+
+       carritoHTML(); //iterar sobre el carrito y mostrar Html
+    }
+
+}
+
+function vaciarCarrito() {
+    articulosCarrito = [];
+
+    limpiarHTML();
 }
