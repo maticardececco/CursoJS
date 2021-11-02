@@ -29,8 +29,10 @@ const pendientes = ['Hola', 'Que', 'Tal', 'Como'];
 const nuevoArreglo = pendientes.forEach( (pendiente) => console.log(pendiente))
 pendientes.forEach( (pendiente, indice) => console.log(`${indice} : ${pendiente}`))
 
+//map
 pendientes.map(producto => console.log(producto)) // con map se puede definir en un nuevo arreglo
 
+// for of
 for (let pendiente of pendientes){
     console.log(pendiente)
 }

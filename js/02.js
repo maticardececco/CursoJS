@@ -17,3 +17,4 @@ for(let i = 0; i < carrito.length; i++) {
     }
     console.log(carrito[i].nombre)
 }
+

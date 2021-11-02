@@ -41,5 +41,8 @@ console.log(indice)
 //reduce, filter
 let resultadoNuevo;
 
-resultadoNuevo = carrito.filter(producto => producto.precio > 590)
-console.log(resultadoNuevo)
+//Filter te devuelve un arreglo nuevo con todos los que cumplen con la condición de que es mayor a 590
+resultadoNuevo = carrito.filter(producto => producto.precio > 590);
+console.log(resultadoNuevo);
+
+
