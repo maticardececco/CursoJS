@@ -7,7 +7,7 @@ const carrito = [
     {nombre: 'Monitor 45 pulgadas' , precio:550},
     {nombre: 'Tablet 39 pulgadas' , precio:350,descuento: true},
     {nombre: 'PC 39 pulgadas' , precio:600},
-    {nombre: 'Monitor 50 pulgadas' , precio:700},
+    {nombre: 'Monitor 50 pulgadas' , precio:700}
 ]
 
 for(let i = 0; i < carrito.length; i++) {
@@ -15,6 +15,6 @@ for(let i = 0; i < carrito.length; i++) {
         console.log(`El articulo ${carrito[i].nombre} tiene descuento `);
         continue;
     }
-    console.log(carrito[i].nombre)
+    console.log(carrito[i].nombre);
 }
 
