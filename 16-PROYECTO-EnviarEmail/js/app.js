@@ -2,6 +2,7 @@
 
 const btnEnviar = document.querySelector('#enviar');
 const formulario = document.querySelector('#enviar-mail');
+const btnReset = document.querySelector('#resetBtn');
 
 //variables para campos
 const email = document.querySelector('#email');
@@ -105,10 +106,43 @@ function mostrarError(mensaje) {
 
 function enviarEmail(e) {
     e.preventDefault()
+    //mostrar
+    const spinner = document.querySelector('#spinner');
+    spinner.style.display = 'flex'
+    //spinner.style.display = 'flex'
+    
+    //Despues de 3 seg. Existen dos funciones de JS setTimeOut(se ejecuta una sola vez) y setInterval (lo hace cada tanto tiempo..)
+    setTimeout(() => 
+    {
+        spinner.style.display = 'none';
+        //console.log("Ejecuta después de los 3 segundos");
+        const parrafo = document.createElement('p');
+        parrafo.textContent = 'El mensaje se envió correctamente';
+        parrafo.classList.add('text-center','my-10','p-5','bg-green-500','uppercase');
 
-    console.log('Enviando');
+        //local persiste y session localStorage. Defin
 
+        //Inserta el parrafo antes del spinner
+        formulario.insertBefore(parrafo,spinner);
+        setTimeout(() => 
+        {
+            parrafo.remove();
+            resetearFormulario();
+        },5000)
 
+    } , 3000);
+
+       
+}
+//funcion que resetea el formulario
+
+function resetearFormulario() {
+    formulario.reset();
+
+    inicioApp();
+    
     
 }
 
+localStorage.setItem('Matias', 555);
+localStorage.setItem('Nueva','Dos');
