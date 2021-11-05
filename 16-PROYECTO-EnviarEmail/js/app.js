@@ -141,8 +141,4 @@ function resetearFormulario() {
 
     inicioApp();
     
-    
 }
-
-localStorage.setItem('Matias', 555);
-localStorage.setItem('Nueva','Dos');
