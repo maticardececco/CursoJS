@@ -29,15 +29,22 @@ const datosBusqueda = {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    mostrarAutos();  //muestra los autos
+    mostrarAutos(autos);  //muestra los autos
 
     //Llena las opciones de años
     llenarSelect();
 })
 
 //Event Lsitener para los select de bsuqueda
-marca.addEventListener('change', (e) => datosBusqueda.marca = e.target.value)
-year.addEventListener('change',(e) => datosBusqueda.year = e.target.value);
+marca.addEventListener('change', (e) => {
+    datosBusqueda.marca = e.target.value;
+    filtrarAuto();
+
+});
+year.addEventListener('change',(e) => {
+    datosBusqueda.year = parseInt(e.target.value);
+    filtrarAuto();
+});
 minimo.addEventListener('change',(e) => datosBusqueda.minimo = e.target.value);
 maximo.addEventListener('change', (e) => datosBusqueda.maximo = e.target.value);
 puertas.addEventListener('change', (e) => datosBusqueda.puertas = e.target.value);
@@ -46,16 +53,26 @@ color.addEventListener('change', (e) =>  datosBusqueda.color = e.target.value)
 
 
 
-function mostrarAutos() {
+function mostrarAutos(autos) {
+   
+    limpiarHTML();
+
     autos.forEach(auto => {
         const autoHTML = document.createElement('p');
 
         const{marca, modelo, year, puertas, transmision, precio, color} = auto;
         autoHTML.textContent = `
         ${marca}-${modelo}-${year}-${puertas}-${transmision}-${precio}-${color}
-        `
+        `;
         resultado.appendChild(autoHTML);
     })
+
+}
+
+function limpiarHTML() {
+    while(resultado.firstChild){
+        resultado.removeChild(resultado.firstChild);
+    }
 }
 
 //Generar los años del select
@@ -69,3 +86,32 @@ function llenarSelect() {
         
     }
 }
+
+//funcion que filtra en base a la busqueda 
+function filtrarAuto(){
+    const resultado = autos.filter(filtrarMarca).filter(filtrarYear);
+    
+
+    mostrarAutos(resultado);
+    
+
+}
+
+function filtrarMarca(auto) {
+    const {marca} = datosBusqueda;
+    if(marca){
+        return auto.marca === marca;
+    }
+    return auto; //traigo todos de regreso
+
+}
+function filtrarYear(auto) {
+    const {year} = datosBusqueda;
+   
+    if(year){
+        return auto.year === year;
+    }
+    return auto; //traigo todos de regreso
+
+}
+
