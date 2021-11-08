@@ -29,7 +29,7 @@ const datosBusqueda = {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    mostrarAutos(autos);  //muestra los autos
+    mostrarAutos(autos);  //muestra todos los autos que hay en el otro archi
 
     //Llena las opciones de años
     llenarSelect();
@@ -68,6 +68,8 @@ function mostrarAutos(autos) {
     })
 
 }
+
+const limpiarHTML2
 
 function limpiarHTML() {
     while(resultado.firstChild){
