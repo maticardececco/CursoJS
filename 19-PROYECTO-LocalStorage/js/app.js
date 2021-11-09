@@ -57,10 +57,13 @@ function mostrarError(error) {
     const contenido = document.querySelector('#contenido');
     contenido.appendChild(mensajeError);
 
+    // setTimeout(() => {
+    //     mensajeError.remove();
+    // }, 3000);
+    
     setTimeout(() => {
-        mensajeError.remove();
+       mensajeError.remove(); 
     }, 3000);
-
 
 }
 
@@ -116,7 +119,7 @@ function borrarTweet(id) {
 function limpiarHTML() {
     while(listaTweets.firstChild){
         listaTweets.removeChild(listaTweets.firstChild);
-
+    
     }
 }
 
