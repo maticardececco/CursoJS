@@ -9,6 +9,7 @@ const email = document.querySelector('#email');
 const asunto = document.querySelector('#asunto');
 const mensaje = document.querySelector('#mensaje');
 
+//Expresión regular sacada de interny
 const er = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       
 
@@ -21,9 +22,10 @@ function eventListeners() {
     asunto.addEventListener('blur',validarFormulario);
     mensaje.addEventListener('blur',validarFormulario);
 
-
-    //Enviar email
+    //Enviar mail 
     formulario.addEventListener('submit',enviarEmail);
+    
+ 
 }
 
 
@@ -32,8 +34,9 @@ function eventListeners() {
 
 function inicioApp() {
     // deshabilitar el envio
-    btnEnviar.disabled = true;
-    btnEnviar.classList.add('cursor-not-allowed', 'opacity-50')
+    btnEnviar.disabled = false;
+    btnEnviar.classList.add('opacity-100');
+
 }
 
 function validarFormulario(e) {
@@ -61,6 +64,7 @@ function validarFormulario(e) {
 
        mostrarError('Todos los campos son obligatorios');
    }
+
    if(e.target.type === 'email'){
     //Expresión rgular   
    

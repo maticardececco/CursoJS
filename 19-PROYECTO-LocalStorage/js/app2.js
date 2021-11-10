@@ -22,5 +22,6 @@ function agregarTweet(e) {
     else{
         console.log(tweet);
     }
+    
 }
 

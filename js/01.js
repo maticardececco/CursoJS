@@ -23,8 +23,8 @@ const carrito = [
     {nombre: 'Monitor 50 pulgadas' , precio:700},
 ]
 
+
 for(let i = 0; i < carrito.length; i++) {
     console.log(carrito[i].nombre)
 }
 
-console.log("-----------------");

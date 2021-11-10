@@ -18,12 +18,12 @@ header {
     padding: 10px;
     text-align: center;
     color: white;
-    font-size: 22px;
+    font-size: 30px;
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
 }
 form {
-    margin: 30px 0;
+    margin: 10px 0;
 }
 #loaders {
     text-align: center;
@@ -38,9 +38,12 @@ form {
     padding: 3rem 0;
 }
 
+#enviar {
+  float: left;
+}
 
 .sk-chase {
-    width: 40px;
+    width: 0px;
     height: 40px;
     position: relative;
     animation: sk-chase 2.5s infinite linear both;
@@ -78,13 +81,13 @@ form {
   .sk-chase-dot:nth-child(5):before { animation-delay: -0.7s; }
   .sk-chase-dot:nth-child(6):before { animation-delay: -0.6s; }
   
-  @keyframes sk-chase {
+  /* @keyframes sk-chase {
     100% { transform: rotate(360deg); } 
   }
   
   @keyframes sk-chase-dot {
     80%, 100% { transform: rotate(360deg); } 
-  }
+  } */
   
   @keyframes sk-chase-dot-before {
     50% {

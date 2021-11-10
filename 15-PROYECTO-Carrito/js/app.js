@@ -24,7 +24,10 @@ function agregarCurso(e) {
     if(e.target.classList.contains('agregar-carrito')) 
     {
         const cursoSeleccionado = e.target.parentElement.parentElement;
+        
         leerDatosCurso(cursoSeleccionado);
+
+        //es todo el div que tiene cl curso, el parent parent indica q es el abuelo del boton agregar-carrito
         
 
     }
@@ -59,10 +62,10 @@ function leerDatosCurso(curso) {
     else {
         //Agrega elementos al arreglo de carrito
         articulosCarrito = [...articulosCarrito, infoCurso];
-        
+        console.log
     }
 
-    
+
 
     console.log(articulosCarrito);
     carritoHTML();
@@ -126,6 +129,6 @@ function eliminarCurso(e) {
 
 function vaciarCarrito() {
     articulosCarrito = [];
-
     limpiarHTML();
+    
 }
