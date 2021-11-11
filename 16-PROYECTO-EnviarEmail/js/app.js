@@ -35,14 +35,12 @@ function eventListeners() {
 function inicioApp() {
     // deshabilitar el envio
     btnEnviar.disabled = false;
-    btnEnviar.classList.add('opacity-100');
-
+    btnEnviar.classList.add('cursornot-allowed', 'opacity-100')
+        
 }
 
 function validarFormulario(e) {
 
-   
-    
    if(e.target.value.length > 0) {
 
     //Eliminar errores
@@ -69,22 +67,19 @@ function validarFormulario(e) {
     //Expresión rgular   
    
        if (er.test(e.target.value)){
-
             const error = document.querySelector('p.error');
             if (error){
                 error.remove();
             }
-            
-
-            e.target.classList.remove('border', 'border-red-500');
-            e.target.classList.add('border', 'border-green-500');
-       }else {
+         e.target.classList.remove('border', 'border-red-500');
+         e.target.classList.add('border', 'border-green-500');
+       }
+       else {
             e.target.classList.remove('border', 'border-red-500');
             e.target.classList.add('border', 'border-green-500');
            mostrarError('Email no válido');
        }
    }
-
    if(er.test(email.value) && asunto.value !== '' && mensaje.value !== '') {
        console.log("Pasaste la validacion")
        btnEnviar.disabled = false;
