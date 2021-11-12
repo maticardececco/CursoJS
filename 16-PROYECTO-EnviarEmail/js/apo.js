@@ -5,3 +5,12 @@ const persona = {
 
 console.log(persona);
 console.log(typeof persona);
+
+
+function Persona(nombre,apellido) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+}
+
+
+

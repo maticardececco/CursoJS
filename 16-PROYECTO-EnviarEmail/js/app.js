@@ -27,15 +27,12 @@ function eventListeners() {
     
  
 }
-
-
-
 //Funciones
 
 function inicioApp() {
     // deshabilitar el envio
     btnEnviar.disabled = false;
-    btnEnviar.classList.add('cursornot-allowed', 'opacity-100')
+    btnEnviar.classList.add('cursor-not-allowed', 'opacity-100')
         
 }
 
