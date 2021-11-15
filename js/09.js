@@ -28,15 +28,18 @@ Cliente.prototype.retiraSaldo = function(retira) {
 }
 
 
+
+//heredarlos
 function Persona(nombre,saldo,telefono){
     Cliente.call(this,nombre,saldo); //heredamos el constructor de cliente;
     this.telefono = telefono;
 }
 
-Persona.prototype = Object.create(Cliente.prototype);
+Persona.prototype = Object.create(Cliente.prototype);  //pasar prototype de cliente a persona 
 
 Persona.prototype.constructor = Cliente;
 
 //Instaciarlo
 const juan = new Persona('juan',5000,135434);
 console.log(juan.nombreClienteSaldo());
+

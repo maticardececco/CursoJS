@@ -3,7 +3,7 @@ function Cliente(nombre,saldo) {
     this.saldo = saldo;
 }
 
-//Definimos un metodo exclusivo de Cliente
+//Definimos metodos exclusivos de Cliente
 //fUCNTION buscan en el mismo objetvo, y el arrow function siempre busca en la ventana global
 Cliente.prototype.tipoCliente = function () {
     let tipo;
@@ -35,3 +35,4 @@ console.log(pedro);
 
 pedro.retiraSaldo(1000);
 console.log(pedro.nombreClienteSaldo());
+

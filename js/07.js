@@ -44,3 +44,4 @@ function Empresa(nombre,saldo,categoria) {
 
 const CCJ = new Empresa('Codigo',4000,'Cursos en Linea');
 console.log(formatearEmpresa(CCJ));
+
