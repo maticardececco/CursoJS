@@ -81,7 +81,7 @@ Interfaz.prototype.mostrarResultado = function(seguro, total) {
     }
     // Crear un div
     const div = document.createElement('div');
-    div.classList.add('mt-10'); //por tailwind
+    div.classList.add('mt-10'); //por tailwind - framework de css
 
     // Insertar la informacion --  
     div.innerHTML = `
@@ -93,12 +93,11 @@ Interfaz.prototype.mostrarResultado = function(seguro, total) {
     `;
 
     const spinner = document.querySelector('#cargando');
-    spinner.style.display = 'block'
-
+    spinner.style.display = 'block';
 
     setTimeout( () =>  {
-         spinner.remove();
-         resultado.appendChild(div);
+         spinner.style.display = 'none'; //se borra el spinner
+         resultado.appendChild(div); // y se muestra el resultado
     }, 3000);
     
 }
@@ -145,7 +144,7 @@ formulario.addEventListener('submit', e =>  {
          // Interfaz imprimiendo un error
          interfaz.mostrarMensaje('Faltan datos, revisar el formulario y prueba de nuevo', 'error');
     } else {
-         // Limpiar resultados anteriores
+         // Limpiar resultados anteriores - Ocultar cotizaciones 
          const resultados = document.querySelector('#resultado div');
          if(resultados != null) {
               resultados.remove();
