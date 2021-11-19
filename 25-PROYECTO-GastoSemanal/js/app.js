@@ -18,7 +18,7 @@ class Presupuesto {
         this.restante = Number(presupuesto);
         this.gastos = [];
     }
-    //agregando al arreglo cada gasto que vas agregando
+    //agregando al arreglo cada gasto que vas agregands
     nuevoGasto(gasto){
         this.gastos = [...this.gastos,gasto];
         this.calcularRestante();
@@ -35,7 +35,9 @@ class Presupuesto {
 
 }
 
+//El proyecto 
 class UI {
+
     insertarPresupuesto(cantidad){
         //Extrayendo valores
         const {presupuesto, restante} = cantidad;
@@ -43,9 +45,10 @@ class UI {
         //Agregar al HTML
         document.querySelector('#total').textContent = presupuesto;
         document.querySelector('#restante').textContent = restante;
+            
     }
     
-
+//Imprime mensaje de alerta  en caso de error o de acción correcta
     imprimirAlerta(mensaje,tipo){
         const divAlerta = document.createElement('div');
         divAlerta.classList.add('text-center','alert');
@@ -57,19 +60,18 @@ class UI {
         }
 
         divAlerta.textContent = mensaje;
-
-        //insertar HTML
+        
+        //insertar Html
 
         document.querySelector('.primario').insertBefore(divAlerta,formulario);
 
-        //Quitar del HTML
+        //Quitar del HTML, mantenerlo por 3 segundos y quitarlo
         setTimeout(() => {
             divAlerta.remove();
-        },3000);800
-
-       
+        },3000);
 
     }
+    //Limpiar el html en caso de tener datos y muestra los gastos
     mostrarGastos(gastos) {
         this.limpiarHTML();
         //Iterar
@@ -106,6 +108,7 @@ class UI {
         } 
             )
     }
+    //Limpia el HTML para q no queden gastos cargados
     limpiarHTML() {
         while(gastoListado.firstChild){
             gastoListado.removeChild(gastoListado.firstChild);
@@ -139,14 +142,13 @@ class UI {
 
 }
 
-//Instanciar
+//Instanciar un nuevo objeto ui
 const ui = new UI();
 let presupuesto;
 
-
-
 //Funciones
 function preguntarPresupuesto() {
+    //Una vez que se carga el document te pregunta cual es el presupuesto
     const presupuestoUsuario = prompt('¿Cuál es tu presupuesto?');
 
     if(presupuestoUsuario === '' || presupuestoUsuario === null || isNaN(presupuestoUsuario) || presupuestoUsuario <= 0){
@@ -156,10 +158,10 @@ function preguntarPresupuesto() {
     presupuesto = new Presupuesto(presupuestoUsuario);
     console.log(presupuesto);
     ui.insertarPresupuesto(presupuesto);
-
     
 }
 
+//Agregar un nuevo gasto a la grilla de gastos, y mostrarlos 
 function agregarGasto(e) {
     e.preventDefault();
 
