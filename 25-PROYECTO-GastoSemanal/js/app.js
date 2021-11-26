@@ -23,7 +23,7 @@ class Presupuesto {
         this.gastos = [...this.gastos,gasto];
         this.calcularRestante();
     }
-
+    //Calcula el presupuesto restante
     calcularRestante() {
         const gastado = this.gastos.reduce((total, gasto) => total + gasto.cantidad, 0  );
         this.restante = this.presupuesto - gastado;
@@ -35,7 +35,7 @@ class Presupuesto {
 
 }
 
-//El proyecto 
+//Clase de Interfaz con metodos que realizan acciones gráficas, en la interfaz del usuario 
 class UI {
 
     insertarPresupuesto(cantidad){
@@ -80,6 +80,8 @@ class UI {
 
             //Crear un LI
             const nuevoGasto = document.createElement('li');
+            
+            //className también se le pasa las propiedades de tailwind que son las clases de css
             nuevoGasto.className = 'list-group-item d-flex justify-content-between align-items-center';
             //nuevoGasto.setAttribute('data-id',id);
             nuevoGasto.dataset.id = id;
@@ -93,6 +95,7 @@ class UI {
             btnBorrar.onclick = () => {
                 eliminarGasto(id);
             }
+            
             nuevoGasto.appendChild(btnBorrar);
 
 
