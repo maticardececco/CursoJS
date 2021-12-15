@@ -20,5 +20,3 @@ const matias = new Cliente('Matias',4000);
 console.log(matias.mostrarInformacion());
 console.log(Cliente.bienvenida());
 
-
-//Herencia, heredar una clase 

@@ -24,12 +24,11 @@ function agregarCurso(e) {
     if(e.target.classList.contains('agregar-carrito')) 
     {
         const cursoSeleccionado = e.target.parentElement.parentElement;
-        
+
         leerDatosCurso(cursoSeleccionado);
 
         //es todo el div que tiene cl curso, el parent parent indica q es el abuelo del boton agregar-carrito
         
-
     }
     //console.log(e.target.classList);
 }
@@ -44,7 +43,6 @@ function leerDatosCurso(curso) {
         precio: curso.querySelector('.precio span').textContent,
         id: curso.querySelector('a').getAttribute('data-id'),
         cantidad : 1
-
     }
     //Revisar si un objeto existe en el carrito
     const existe = articulosCarrito.some(curso => curso.id === infoCurso.id);
@@ -62,7 +60,7 @@ function leerDatosCurso(curso) {
     else {
         //Agrega elementos al arreglo de carrito
         articulosCarrito = [...articulosCarrito, infoCurso];
-        console.log
+        
     }
 
 
@@ -102,6 +100,9 @@ function carritoHTML() {
         `;
         //Agrega el HML DEL CARRITO EN EL TBODY
         contenedorCarrito.appendChild(row);
+        
+              
+
     })
 }
 

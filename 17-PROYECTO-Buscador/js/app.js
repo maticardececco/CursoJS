@@ -109,11 +109,10 @@ function filtrarMarca(auto) {
 }
 function filtrarYear(auto) {
     const {year} = datosBusqueda;
-   
+    
     if(year){
         return auto.year === year;
     }
     return auto; //traigo todos de regreso
-
 }
 
