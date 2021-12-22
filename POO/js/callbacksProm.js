@@ -22,7 +22,7 @@
 
 // mostrarPaises();
 
-// nuevoPais('Argentina', mostrarPaises);
+//nuevoPais('Argentina', mostrarPaises);
 
 
 //Ejemplo N°2 es utilizar mal y mucho los callback... Promise dan una sintáxis mas clara
@@ -86,27 +86,49 @@
 
 //----------------Ejemplo 4, llevar callbackhell a promise
 
+// const paises = [];
+
+// const nuevoPais = pais => new Promise(resolve => {
+//     setTimeout(() => {
+//         paises.push(pais);
+//         resolve(`Agregado: ${pais}`)
+//     }, 3000);
+// })
+
+
+// //un then despues del otro para volver a llamar y agregar otro pais
+
+// nuevoPais('Alemania')
+// .then(resultado => {
+//     console.log(resultado);
+//     console.log(paises);
+//     return nuevoPais('Francia');
+// } )
+// .then(resultado => {
+//     console.log(resultado);
+//     console.log(paises);
+//     return nuevoPais('Argentina');
+// })
+// .then((resultado) => 
+//     console.log(resultado))
+
 const paises = [];
 
 const nuevoPais = pais => new Promise(resolve => {
     setTimeout(() => {
-        paises.push(pais);
-        resolve(`Agregado: ${pais}`)
-    }, 3000);
+       paises.push(pais);
+       resolve(`Agregado ${pais}`) 
+    }, 2000);
 })
-
 
 nuevoPais('Alemania')
-.then(resultado => {
-    console.log(resultado);
-    console.log(paises);
-    return nuevoPais('Francia');
-} )
-.then(resultado => {
-    console.log(resultado);
-    console.log(paises);
-    return nuevoPais('Argentina');
-})
-.then((resultado) => 
-    console.log(resultado))
-    
+    .then(resultado => {
+        console.log(resultado);
+        console.log(paises);
+        return nuevoPais('Francia');
+    })
+    .then(resultado => {
+        console.log(resultado);
+        console.log(paises); 
+        
+    })
