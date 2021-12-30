@@ -30,12 +30,13 @@ function mostrarDatos() {
   
 }
 
-function mostrarHTML({id,empresa,trabajo,nombre}){
-    const contenido = document.querySelector('.contenido');
+// function mostrarHTML({id,empresa,trabajo,nombre}){
+//     const contenido = document.querySelector('.contenido');
 
-    contenido.innerHTML = `
-    <p>Nombre: ${nombre} </p>
-    <p>Empresa: ${empresa}</p>
-    `
+//     contenido.innerHTML = `
+//     <p>Nombre: ${nombre} </p>
+//     <p>Empresa: ${empresa}</p>
+    
+//     `
 
-}
+// }
