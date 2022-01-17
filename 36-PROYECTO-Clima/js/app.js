@@ -125,7 +125,7 @@ function Spinner(){
     
 
     `;
-    resultado.appendChild(divSpinner);
+    resultado.appendChild(divSpinner)
 
     
 }
