@@ -19,11 +19,12 @@ class API {
                     UI.divResultado.textContent = lyrics;
                     UI.headingResultado.textContent = `Letra de la canción: ${this.cancion} de ${this.artista}`
 
-                }else{
+                }
+                else{
                     UI.divMensajes.textContent = 'La canción no existe, prueba con otra';
                     UI.divMensajes.classList.add('error');
                 }
-                
+                                
             })
     }
 }
